@@ -18,7 +18,7 @@ class Photographer {
     }
 
     get city() {
-        return this._name
+        return this._city
     }
 
     get country() {

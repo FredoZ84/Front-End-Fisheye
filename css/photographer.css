@@ -1,11 +1,23 @@
-#contact_modal {
+.bground {
     display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(26, 39, 156, 0.4);
 }
 
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+}
+
+.photographer-media img, .photographer-media video {
+    width: 25%;
 }
 
 .contact_button {
@@ -30,7 +42,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 35px;
-    margin: auto;
+    margin: 5% auto;
 }
 
 .modal header {
@@ -68,9 +80,16 @@ form div {
     margin-bottom: 26px;
 }
 
-form input {
+form input, form textarea {
     width: 100%;
-    height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+form input {
+    height: 48px;
+}
+
+form textarea {
+    height: 144px;
 }
