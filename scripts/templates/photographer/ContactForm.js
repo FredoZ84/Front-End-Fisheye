@@ -1,10 +1,10 @@
 class ContactForm {
-    constructor(/*photographer*/){
-        //this._photographer = photographer
+    constructor(){
         this.modal = document.querySelector(".bground")
         this.buttonContact = document.querySelector(".contact_button")
         this.close = document.querySelector(".closeModal")
         this.elementsList = document.getElementById("elements_list")
+        this.title = document.querySelector(".modal>header>h2")
     }
 
     formData(element,id,type,label) {
@@ -12,9 +12,9 @@ class ContactForm {
         let toInsert;
         // condition en fonction du paramètre  
         if (element === "input") {
-            toInsert = `<input type="${type}" id="${id}" name="${id}" />`
+            toInsert = `<input type="${type}" id="${id}" name="${id}" placeholder="${label}" />`
         } else {
-            toInsert =`<textarea id="${id}" name="${id}"></textarea>`
+            toInsert =`<textarea id="${id}" name="${id}" placeholder="${label}"></textarea>`
         }
 
         const data =`
@@ -32,6 +32,7 @@ class ContactForm {
         this.buttonContact.addEventListener("click", () => {this.modal.style.display = "block"})  
         //closeModal
         this.close.addEventListener("click", () => {this.modal.style.display = "none"})
+
 
         const datas = [
             this.formData("input","firstname","text","Prénom"),

@@ -39,12 +39,70 @@ h1 {
     flex-direction: column;
 }
 
+.photographer_section a {
+    text-decoration: none;
+    text-align: center;
+}
+
 .photographer_section article h2 {
     color: #D3573C;
     font-size: 28px;
+    margin: 0 auto;
 }
 
 .photographer_section article img {
     height: 200px;
     width: 200px;
+    border-radius: 100%;
 }
+
+.photographer_section article .photograper-city {
+    color: #D3573C;
+}
+
+.photographer_section article p {
+    margin:0 auto;
+}
+
+.photographer_section article .photograper-price {
+    color: #525252;
+}
+
+/*Page d'erreur*/
+#error_page main {
+    text-align: center;
+}
+
+#error_page main h1 {
+    margin-right: unset;
+}
+
+#error_page main img {
+    width:50% ;
+}
+
+@media screen and (max-width: 768px)  {
+    /*Page d'erreur*/
+    #error_page header {
+        flex-direction: column;
+        margin-bottom: 50px;
+        padding: 20px;
+    }
+
+    #error_page header .logo {
+        margin-left: unset;
+    }
+
+    #error_page header h1 {
+        margin-right: unset;
+    }
+    
+    #error_page main {
+        padding: 20px;
+    }
+
+    #error_page main img {
+        width: 80%;
+    }
+}
+
