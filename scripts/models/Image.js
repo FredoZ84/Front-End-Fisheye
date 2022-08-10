@@ -23,7 +23,7 @@ class Image {
     }
     
     get image() {
-        return `/assets/images/media/${this._folder}/${this._image}`
+        return `./assets/images/media/${this._folder}/${this._image}`
     }
     
     get likes() {

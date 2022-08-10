@@ -23,7 +23,7 @@ class Video {
     }
     
     get video() {
-        return `/assets/images/media/${this._folder}/${this._video}`
+        return `./assets/images/media/${this._folder}/${this._video}`
     }
     
     get likes() {
