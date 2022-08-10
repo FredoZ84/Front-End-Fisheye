@@ -2,8 +2,8 @@ class App {
     constructor() {
         this.photographersSection = document.querySelector(".photographer_section")
         this.photographerHeader = document.querySelector(".photograph-header")
-        this.photographersApi = new Api("/data/photographers.json")
-        this.mediasApi = new Api("/data/medias.json") 
+        this.photographersApi = new Api("./data/photographers.json")
+        this.mediasApi = new Api("./data/medias.json") 
     }
 
     async getPhotographer() {
@@ -11,9 +11,18 @@ class App {
     }
 
     getPage() {
-        const path = window.location.pathname;
-        const characterAfterDot = path.split(".")[1]
-        const page = path.slice(1 ,-1 *characterAfterDot.length-1) // page web sur laquelle on se trouve (index ou photographer)
+        const path = window.location.pathname
+        let page = null
+
+        if (path.includes('.')) {// si path contient un  point ex:  index.html
+            
+            const characterAfterDot = path.split(".")[1]
+            page = path.slice(1 ,-1 *characterAfterDot.length-1) // page web sur laquelle on se trouve (index ou photographer)
+            
+        } else {
+            page = 'index'
+        }
+        
 
         return page
     }
@@ -22,6 +31,7 @@ class App {
         const photographersData = await this.photographersApi.get()
         const mediasData = await this.mediasApi.get()
         const page = this.getPage()
+        
         
         const params = (new URL(document.location)).searchParams;
         let photograperId;
@@ -41,7 +51,7 @@ class App {
         }
         
         // Affiche la liste des photographes sur la page d'accueil
-        if (page == "index") {
+        if (page == "index"  ) {// || page == "index"
             photographersData
             .map(photographer => new Photographer(photographer))
             .forEach(photographer => {                   
