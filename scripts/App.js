@@ -17,7 +17,7 @@ class App {
         if (path.includes('.')) {// si path contient un  point ex:  index.html
             
             const characterAfterDot = path.split(".")[1]
-            page = path.slice(1 ,-1 *characterAfterDot.length-1) // page web sur laquelle on se trouve (index ou photographer)
+            page = path.slice(19 ,-1 *characterAfterDot.length-1) // page web sur laquelle on se trouve (index ou photographer)
             
         } else {
             page = 'index'
