@@ -15,14 +15,13 @@ class App {
         let page = null
 
         if (path.includes('.')) {// si path contient un  point ex:  index.html
-            
-            const characterAfterDot = path.split(".")[1]
-            page = path.slice(19 ,-1 *characterAfterDot.length-1) // page web sur laquelle on se trouve (index ou photographer)
-            
+            const arrayPath = path.split("/")
+            const pageWithDot = arrayPath[arrayPath.length-1]
+            const characterAfterDot = pageWithDot.split(".")[1]
+            page = pageWithDot.slice(0 ,-1 *characterAfterDot.length-1) // page web sur laquelle on se trouve (index ou photographer)            
         } else {
             page = 'index'
-        }
-        
+        }        
 
         return page
     }
