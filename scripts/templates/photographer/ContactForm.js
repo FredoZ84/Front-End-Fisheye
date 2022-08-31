@@ -33,6 +33,10 @@ class ContactForm {
         //closeModal
         this.close.addEventListener("click", () => {this.modal.style.display = "none"})
 
+        const titleContact = document.querySelector("#contact_modal h2")
+        const photograperName = document.querySelector('h1')
+       
+        titleContact.innerHTML += `<br /> ${photograperName.textContent}`
 
         const datas = [
             this.formData("input","firstname","text","Prénom"),
@@ -47,6 +51,3 @@ class ContactForm {
     }
 }
 
-// Formulaire page de photographe
-const Form = new ContactForm()
-Form.init()

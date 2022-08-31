@@ -1,6 +1,6 @@
 class MediasFactory{
     constructor(data) {
-        if (data.hasOwnProperty('image')) {
+        if (data.hasOwnProperty('image') ) {
             return new Image(data)
             
         } else if (data.hasOwnProperty('video')) {

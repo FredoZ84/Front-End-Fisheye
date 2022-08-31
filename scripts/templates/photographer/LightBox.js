@@ -3,7 +3,6 @@ class LightBox {
         this.currentElement = null
         this.listElement = listElement
         this.manageEvent();
-
     }
 
     show(id) {
@@ -13,6 +12,7 @@ class LightBox {
 
     previous() {
         let index = this.listElement.findIndex(element => element.id == this.currentElement.id );
+
         if (index == 0) {
             this.currentElement = this.listElement[this.listElement.length-1];
         } else {
@@ -24,6 +24,7 @@ class LightBox {
 
     next() {
         let index = this.listElement.findIndex(element => element.id == this.currentElement.id );
+
         if (index == this.listElement.length - 1 ) {
             this.currentElement = this.listElement[0];
         } else {

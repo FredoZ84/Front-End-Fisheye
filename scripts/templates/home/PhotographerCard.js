@@ -14,9 +14,9 @@ class PhotographerCard {
             />
             <h2>${this.photographer.name}</h2>
         </a>
-        <p class="photograper-city">${this.photographer.city}, ${this.photographer.country}</p>
+        <h3 class="photograper-city">${this.photographer.city}, ${this.photographer.country}</h3>
         <p class="photograper-tagline">${this.photographer.tagline}</p>
-        <p class="photograper-price">${this.photographer.price}/jour</p>
+        <p class="photograper-price">${this.photographer.price}€/jour</p>
         
         `
         article.innerHTML = PhotographerCard
