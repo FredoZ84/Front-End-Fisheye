@@ -4,7 +4,7 @@ class ContactForm {
         this.buttonContact = document.querySelector(".contact_button")
         this.close = document.querySelector(".closeModal")
         this.elementsList = document.getElementById("elements_list")
-        this.title = document.querySelector(".modal>header>h2")
+        this.title = document.querySelector(".modal>header>h1")
     }
 
     formData(element,id,type,label) {
@@ -33,7 +33,14 @@ class ContactForm {
         //closeModal
         this.close.addEventListener("click", () => {this.modal.style.display = "none"})
 
-        const titleContact = document.querySelector("#contact_modal h2")
+        document.addEventListener("keyup", (e) => {
+    
+            if (e.key == "Escape") {
+                this.modal.style.display = "none"
+            }
+        })
+
+        const titleContact = document.querySelector("#contact_modal h1")
         const photograperName = document.querySelector('h1')
        
         titleContact.innerHTML += `<br /> ${photograperName.textContent}`

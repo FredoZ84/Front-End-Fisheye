@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -16,7 +16,7 @@
     </header>
     <main id="main">
       <div class="photograph-header">
-        <div>
+        <div class="presentation">
           <h1></h1>
           <h2></h2>
           <p class="tagline"></p>
@@ -27,13 +27,22 @@
           
         </div>
       </div>
-      <div id="sort_by_area">
+      <div id="sort_by_area" aria-label="zone du sélécteur de tri des médias">
         <label for="sort_by">Tirer par</label>
-        <select id="sort_by">
-          <option value="likes">Popularité</option>
-          <option value="date">Date</option>
-          <option value="title">Titre</option>
-        </select>
+        <div id="sort_by" aria-label="Order by" aria-haspopup="listbox" aria-expanded="false" role="button">
+          <button value="likes" class="the_selected">
+            Popularité
+            <i class="fa-solid fa-chevron-up"></i>
+          </button>
+          <button value="date">
+            Date
+            <i class="fa-solid fa-chevron-up"></i>
+          </button>
+          <button value="title">
+            Titre
+            <i class="fa-solid fa-chevron-up"></i>
+          </button>
+        </div>
       </div>
       <div class="photographer-media">
 
@@ -42,25 +51,22 @@
         
           <span id="likes">
             <span class="number"></span>
-            <i class="fa-solid fa-heart"></i>
+            <i class="fa-solid fa-heart" aria-label="likes"></i>
           </span>
           <span id="price"></span>
         
 
       </div>
+      <!--Lightbox-->
       <div id="lightbox">
-        <div class="content">
-          <i class="fa-solid fa-xmark close"></i>
-        <div class="navigation">
+        <div class="content">      
           <i class="fa-solid fa-chevron-left previous"></i>
-          <div class="media-container">
+          <div class="media-container">            
             <div class="media-frame"></div>
             <p class="media-description"></p>
           </div>
           <i class="fa-solid fa-chevron-right next"></i>
-        </div>           
-          
-                  
+          <i class="fa-solid fa-xmark close"></i>        
         </div>
     </div>
     </main>
@@ -69,7 +75,7 @@
       <div id="contact_modal">
         <div class="modal">
           <header>
-            <h2>Contactez-moi</h2>
+            <h1>Contactez-moi</h1>
             <img src="assets/icons/close.svg" alt="croix de fermeture de la modal du formulaire" class="closeModal" />
           </header>
           <form>

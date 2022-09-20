@@ -27,6 +27,20 @@ class App {
         return page
     }
 
+    // desactive lien hypertexte
+    hyperlinkDisabled(classOfLink) { 
+        const groupOfLinks = document.getElementsByClassName(classOfLink)
+
+		for (let i = 0; i < groupOfLinks.length; i++) {
+			groupOfLinks[i].addEventListener("click", (e)  => {
+                //console.log("lien hypertexte non autorisé")
+                
+                e.preventDefault()
+            
+			})
+		}
+    }
+
     async main() {
         const photographersData = await this.photographersApi.get()
         const mediasData = await this.mediasApi.get()
@@ -86,9 +100,19 @@ class App {
                 this.photographerMedia.appendChild(Template.mediaCard())                
             }) 
 
+            //Desactivation des liens
+            this.hyperlinkDisabled("disabled")
+
             //Gestion du tri des media
             let sorter = new SorterForm()
-            sorter.init()            
+            sorter.init()     
+            
+            const firstMedia = document.querySelector(".photographer-media .media-card a")
+
+            firstMedia.addEventListener("focus", () => {
+                sorter.sortByWrap()
+            })
+
 
             // Formulaire page de photographe
             const Form = new ContactForm()

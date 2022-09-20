@@ -1,7 +1,7 @@
 class Likes{
     constructor(){
         this.area = document.querySelectorAll(".likes-area")
-        this.media = document.querySelectorAll(".media-frame>*")
+        this.media = document.querySelectorAll(".media-type")
         this.likes = document.querySelectorAll(".likes-number")
         this.totalLikes = document.querySelector("#likes .number")
     }

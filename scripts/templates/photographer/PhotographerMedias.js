@@ -11,9 +11,9 @@ class PhotographerMedias {
         let toInsert,mediaComposition
         
         if (this.media.hasOwnProperty('_image') || this.media.hasOwnProperty('image')) {
-            toInsert = `<img src="${this.media.image}" alt=" à définir" data-id="${this.media.id}" />        `
+            toInsert = `<img src="${this.media.image}" alt=" à définir" class="media-type" data-id="${this.media.id}" />        `
         } else if(this.media.hasOwnProperty('_video') || this.media.hasOwnProperty('video')) {
-            toInsert = `<video src="${this.media.video}" data-id="${this.media.id}" title="video"></video>`
+            toInsert = `<video src="${this.media.video}" class="media-type" data-id="${this.media.id}" title="video"></video>`
         } else {
             console.error("format non reconnu")
             console.log(this.media)
@@ -21,18 +21,16 @@ class PhotographerMedias {
 
         mediaComposition = `
             <div class="media-frame">
-            ${toInsert}
+            <a href="#" class="disabled" aria-label="Lilac breasted roller, closeup view">${toInsert}</a>
             </div>
-            <div class="media-description">
-                <h2>
-                    <span class="media-title">
-                        ${this.media.title}
-                    </span>
-                    <span class="likes-area">
-                        <span class="likes-number">${this.media.likes}</span>
-                        <i class="fa-solid fa-heart"></i>
-                    </span>
-                </h2>
+            <div class="media-description">                
+                <span class="media-title">
+                    ${this.media.title}
+                </span>
+                <span class="likes-area">
+                    <span class="likes-number">${this.media.likes}</span>
+                    <i class="fa-solid fa-heart" aria-label="likes"></i>
+                </span>                
             </div>`
 
         mediaCard.innerHTML = mediaComposition

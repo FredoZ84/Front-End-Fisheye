@@ -5,13 +5,15 @@ class LightBox {
         this.manageEvent();
     }
 
+    // Affichage du diaporama de la Lightbox
     show(id) {
         this.currentElement = this.getElementById(id);
         this.display()
     }  
 
+    //  Passage à la diaposistive précédente
     previous() {
-        let index = this.listElement.findIndex(element => element.id == this.currentElement.id );
+        let index = this.listElement.findIndex((element) => element.id == this.currentElement.id);
 
         if (index == 0) {
             this.currentElement = this.listElement[this.listElement.length-1];
@@ -22,8 +24,9 @@ class LightBox {
         this.display();
     }
 
+    // Passage à la diaposistive suivante
     next() {
-        let index = this.listElement.findIndex(element => element.id == this.currentElement.id );
+        let index = this.listElement.findIndex((element) => element.id == this.currentElement.id);
 
         if (index == this.listElement.length - 1 ) {
             this.currentElement = this.listElement[0];
@@ -65,7 +68,7 @@ class LightBox {
                 case "Escape":
                     this.close()
                 break;
-            
+                         
                 default:
                     break;
             }

@@ -13,7 +13,7 @@ class PhotographerCard {
                 alt="${this.photographer.name}"        
             />
             <h2>${this.photographer.name}</h2>
-        </a>
+        </a>        
         <h3 class="photograper-city">${this.photographer.city}, ${this.photographer.country}</h3>
         <p class="photograper-tagline">${this.photographer.tagline}</p>
         <p class="photograper-price">${this.photographer.price}€/jour</p>

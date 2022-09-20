@@ -3,7 +3,7 @@ class PhotographerInfos {
         this.photographer = photographer
     }
 
-    init(){// attribut les information correspondantes
+    init() {// attribut les information correspondantes
         // Header
         const title = document.querySelector("h1")
         const location = document.querySelector("h2")
