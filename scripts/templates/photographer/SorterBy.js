@@ -202,13 +202,12 @@ class SorterForm {
             media.title = mediaTitle[i].textContent.trim()
             media.date = mediaCard[i].dataset.date 
             media.id  = mediaType[i].dataset.id
-            media.folder  = mediaType[i].src.split("/")[6]
-            
+            media.folder  = mediaType[i].dataset.folder            
 
             if (mediaType[i].nodeName == "IMG") {
-                media.image = mediaType[i].src.split("/")[7]
+                media.image = mediaType[i].dataset.file
             } else if (mediaType[i].nodeName == "VIDEO") {
-                media.video = mediaType[i].src.split("/")[7]
+                media.video = mediaType[i].dataset.file
             }           
             
             MediasData.push(media)

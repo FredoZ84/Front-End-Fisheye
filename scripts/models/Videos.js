@@ -21,8 +21,16 @@ class Video {
     get title() {
         return this._title
     }
-    
+
+    get folder() {
+        return this._folder
+    }
+
     get video() {
+        return this._video
+    }
+    
+    get source() {
         return `./assets/images/media/${this._folder}/${this._video}`
     }
     

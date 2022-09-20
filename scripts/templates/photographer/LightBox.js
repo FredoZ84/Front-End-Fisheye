@@ -89,11 +89,11 @@ class LightBox {
 
         if (this.currentElement.hasOwnProperty('_image')) {
 
-             mediaFrame.innerHTML = `<img src="${this.currentElement.image}" alt="${this.currentElement.title}" />`  
+             mediaFrame.innerHTML = `<img src="${this.currentElement.source}" alt="${this.currentElement.title}" />`  
 
         } else if(this.currentElement.hasOwnProperty('_video')) {
 
-             mediaFrame.innerHTML = `<video src="${this.currentElement.video}" controls></video>`  
+             mediaFrame.innerHTML = `<video src="${this.currentElement.source}" controls></video>`  
 
         } else {
 

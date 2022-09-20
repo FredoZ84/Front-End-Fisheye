@@ -21,8 +21,16 @@ class Image {
     get title() {
         return this._title
     }
-    
+
+    get folder() {
+        return this._folder
+    }
+
     get image() {
+        return this._image
+    }
+    
+    get source() {
         return `./assets/images/media/${this._folder}/${this._image}`
     }
     

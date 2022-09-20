@@ -11,9 +11,22 @@ class PhotographerMedias {
         let toInsert,mediaComposition
         
         if (this.media.hasOwnProperty('_image') || this.media.hasOwnProperty('image')) {
-            toInsert = `<img src="${this.media.image}" alt=" à définir" class="media-type" data-id="${this.media.id}" />        `
+
+            toInsert = `<img src="${this.media.source}"
+                             alt="${this.media.title}"
+                             class="media-type"
+                             data-id="${this.media.id}"
+                             data-folder="${this.media.folder}" 
+                             data-file="${this.media.image}" /> `
         } else if(this.media.hasOwnProperty('_video') || this.media.hasOwnProperty('video')) {
-            toInsert = `<video src="${this.media.video}" class="media-type" data-id="${this.media.id}" title="video"></video>`
+
+            toInsert = `<video  src="${this.media.source}" 
+                                class="media-type"
+                                data-id="${this.media.id}"
+                                data-folder="${this.media.folder}" 
+                                data-file="${this.media.video}"
+                                title="video">
+                        </video>`
         } else {
             console.error("format non reconnu")
             console.log(this.media)

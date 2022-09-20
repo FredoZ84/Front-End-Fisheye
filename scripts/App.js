@@ -33,10 +33,8 @@ class App {
 
 		for (let i = 0; i < groupOfLinks.length; i++) {
 			groupOfLinks[i].addEventListener("click", (e)  => {
-                //console.log("lien hypertexte non autorisé")
-                
-                e.preventDefault()
-            
+                //console.log("lien hypertexte non autorisé")                
+                e.preventDefault()            
 			})
 		}
     }
