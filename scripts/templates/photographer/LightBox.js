@@ -2,7 +2,12 @@ class LightBox {
     constructor(listElement) {
         this.currentElement = null
         this.listElement = listElement
-        this.manageEvent();
+        this.rightArrow = document.querySelector("#lightbox .next")
+        this.leftArrow = document.querySelector("#lightbox .previous")
+        this.xmark = document.querySelector("#lightbox .close")
+        this.frame = document.querySelector("#lightbox")
+        this.manageEvent()
+        this.hyperlinkDisabled()
     }
 
     // Affichage du diaporama de la Lightbox
@@ -38,19 +43,19 @@ class LightBox {
     }
 
     manageEvent() {
-        document.querySelector("#lightbox .next").addEventListener("click", () => {
+        this.rightArrow.addEventListener("click", () => {
             this.next();
         })
 
-        document.querySelector("#lightbox .previous").addEventListener("click", () => {
+        this.leftArrow.addEventListener("click", () => {
             this.previous();
         })
 
-        document.querySelector("#lightbox .close").addEventListener("click", () => {
+        this.xmark.addEventListener("click", () => {
             this.close();
         })
 
-        document.querySelector("#lightbox").addEventListener("click", (e) => {
+        this.frame.addEventListener("click", (e) => {
             if (e.target == e.curentTarget) {
                 this.close();
             }            
@@ -103,10 +108,22 @@ class LightBox {
 
         mediaDescription.textContent = this.currentElement.title
         
-        document.querySelector("#lightbox").classList.add("show") ;
+        this.frame.classList.add("show") ;
     }
 
-    close(){
-        document.querySelector("#lightbox").classList.remove("show") ;
+    close() {
+        this.frame.classList.remove("show") ;
+    }
+
+    // desactive lien hypertexte
+    hyperlinkDisabled() { 
+        const groupOfLinks = document.getElementsByClassName("disabled")
+
+		for (let i = 0; i < groupOfLinks.length; i++) {
+			groupOfLinks[i].addEventListener("click", (e)  => {
+                //console.log("lien hypertexte non autorisé")                
+                e.preventDefault()            
+			})
+		}
     }
 }

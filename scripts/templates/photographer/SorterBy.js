@@ -174,14 +174,12 @@ class SorterForm {
         firstMedia.addEventListener("focus", () => {
             this.sortByWrap()
         })
-
         
         this.activeLightBox()
 
         // Encart likes & tarifs; total des likes
         let likes = new Likes()
-        likes.init()
-    
+        likes.init()    
     }
 
     recover() {// récupère les informations des Medias

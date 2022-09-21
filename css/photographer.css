@@ -11,18 +11,10 @@ button:hover, button:focus {
     background-color: #D3573C;
     color:black;
 }
-/*
-.disabled{
-    cursor: default;
-    pointer-events: none;        
-    text-decoration: none;
-    color: grey;
-}
-*/
+
 #photographer #main>* {
     margin: 5px 100px;
 }
-
 /*-------------------------------------------------------------------------------------------
                                     photograph-header 
 --------------------------------------------------------------------------------------------*/
@@ -185,6 +177,24 @@ button:hover, button:focus {
     justify-content: center;
 }
 
+.photographer-media .media-frame {
+    display: block;
+    text-align: center;
+}
+
+.photographer-media .media-frame:focus {
+    text-align: center;
+}
+
+.photographer-media .media-frame:focus::after {
+    content: "Veuillez appuyer sur + pour liker";
+    margin: 0 auto;
+}
+
+.photographer-media .media-frame:focus .media-description .likes-number {
+    font-weight: bold;
+}
+
 .photographer-media .media-card {
     width: 350px;
     height: 300px;
@@ -223,7 +233,7 @@ button:hover, button:focus {
     
 }
 */
-.photographer-media .media-description .likes-area>*:hover {
+.photographer-media .media-description .likes-number:hover {
     font-weight: bold;
 }
 /*-------------------------------------------------------------------------------------------
@@ -241,10 +251,21 @@ button:hover, button:focus {
     background-color: rgba(26, 39, 156, 0.4);
 }
 
+#contact_modal {
+    border: 2px solid #95FFF9;
+    width: 54.5%;
+    margin: 0 auto;
+    position: relative;
+    top: 56px;
+    height: 1037px;
+    box-sizing: border-box;
+}
+
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
+    width: 82.15%;
+    height: 900px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -281,7 +302,9 @@ form {
 
 form label {
     color: #312E2E;
-    font-size: 36px;
+    font-size: 2.25em;
+    font-weight: 400;
+    line-height: 47px;
 }
 
 form div {
@@ -296,10 +319,17 @@ form input, form textarea {
     width: 100%;
     border: none;
     border-radius: 5px;
+    font-weight: 400;
+    font-size: 2.25em;
+    line-height: 47px;
+}
+
+form input:focus, form textarea:focus {
+    background-color: #D3573C;
 }
 
 form input {
-    height: 48px;
+    height: 68px;
 }
 
 form textarea {

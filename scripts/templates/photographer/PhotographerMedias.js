@@ -33,18 +33,19 @@ class PhotographerMedias {
         }
 
         mediaComposition = `
-            <div class="media-frame">
-            <a href="#" class="disabled" aria-label="Lilac breasted roller, closeup view">${toInsert}</a>
-            </div>
-            <div class="media-description">                
-                <span class="media-title">
-                    ${this.media.title}
-                </span>
-                <span class="likes-area">
-                    <span class="likes-number">${this.media.likes}</span>
-                    <i class="fa-solid fa-heart" aria-label="likes"></i>
-                </span>                
-            </div>`
+            <a href="#" class="media-frame disabled"  aria-label="Lilac breasted roller, closeup view">
+                ${toInsert}
+                <div class="media-description">                
+                    <span class="media-title">
+                        ${this.media.title}
+                    </span>
+                    <span class="likes-area">
+                        <span class="likes-number">${this.media.likes}</span>
+                        <i class="fa-solid fa-heart" aria-label="likes"></i>
+                    </span>                
+                </div>
+            </a>`
+            
 
         mediaCard.innerHTML = mediaComposition
 
