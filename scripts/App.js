@@ -85,6 +85,7 @@ class App {
                 const Template = new PhotographerMedias(media)                    
                 this.photographerMedia.appendChild(Template.mediaCard())                
             })
+            
 
             //Gestion du tri des media
             let sorter = new SorterForm()

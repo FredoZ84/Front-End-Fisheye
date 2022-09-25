@@ -12,52 +12,58 @@ class LightBox {
 
     // Affichage du diaporama de la Lightbox
     show(id) {
-        this.currentElement = this.getElementById(id);
+        this.currentElement = this.getElementById(id)
         this.display()
+        console.log(this.currentElement.id)
     }  
 
     //  Passage à la diaposistive précédente
     previous() {
-        let index = this.listElement.findIndex((element) => element.id == this.currentElement.id);
-
-        if (index == 0) {
-            this.currentElement = this.listElement[this.listElement.length-1];
-        } else {
-            this.currentElement = this.listElement[index-1];
-        }
+        if (this.currentElement !== null) {
+            let index = this.listElement.findIndex((element) => element.id == this.currentElement.id) 
         
-        this.display();
+            if (index == 0) {
+                this.currentElement = this.listElement[this.listElement.length-1]
+            } else {
+                this.currentElement = this.listElement[index-1]
+            }
+            
+            this.display()            
+        }        
     }
 
     // Passage à la diaposistive suivante
     next() {
-        let index = this.listElement.findIndex((element) => element.id == this.currentElement.id);
-
+        if (this.currentElement !== null) {
+            let index = this.listElement.findIndex((element) => element.id == this.currentElement.id)
+        
         if (index == this.listElement.length - 1 ) {
-            this.currentElement = this.listElement[0];
+            this.currentElement = this.listElement[0]
         } else {
-            this.currentElement = this.listElement[index+1];
+            this.currentElement = this.listElement[index+1]
         }
         
-        this.display();
+        this.display()
+            
+        }
     }
 
     manageEvent() {
         this.rightArrow.addEventListener("click", () => {
-            this.next();
+            this.next()
         })
 
         this.leftArrow.addEventListener("click", () => {
-            this.previous();
+            this.previous()
         })
 
         this.xmark.addEventListener("click", () => {
-            this.close();
+            this.close()
         })
 
         this.frame.addEventListener("click", (e) => {
             if (e.target == e.curentTarget) {
-                this.close();
+                this.close()
             }            
         })
 
@@ -65,10 +71,10 @@ class LightBox {
     
             switch (e.key) {
                 case "ArrowRight":
-                    this.next();
+                    this.next()
                 break;
                 case "ArrowLeft":
-                    this.previous();
+                    this.previous()
                 break;
                 case "Escape":
                     this.close()
@@ -92,11 +98,11 @@ class LightBox {
         mediaFrame.innerHTML ="";       
         
 
-        if (this.currentElement.hasOwnProperty('_image')) {
+        if (this.currentElement.hasOwnProperty('_image') || this.currentElement.hasOwnProperty('image')) {
 
              mediaFrame.innerHTML = `<img src="${this.currentElement.source}" alt="${this.currentElement.title}" />`  
 
-        } else if(this.currentElement.hasOwnProperty('_video')) {
+        } else if(this.currentElement.hasOwnProperty('_video') || this.currentElement.hasOwnProperty('video')) {
 
              mediaFrame.innerHTML = `<video src="${this.currentElement.source}" controls></video>`  
 

@@ -4,20 +4,13 @@ class SorterForm {
         this.sortBy = document.getElementById("sort_by")
         this.buttons = document.querySelectorAll("#sort_by button")
         this.photographerMedia = document.querySelector(".photographer-media")
-        this.previousAreaButton = document.querySelector(".contact_button")    
+        this.previousAreaButton = document.querySelector(".contact_button")   
     }
 
-    init() {         
-        /*
-        document.addEventListener("keydown", (e)=> {
-			
-				console.log(e.key)
-		
-		});
-        */
+    init() {  
         this.sortSelectorEvent()
-
-        this.activeLightBox()
+       
+        this.activeLightBox()              
 
         // Encart likes & tarifs; total des likes
         let likes = new Likes()
@@ -56,10 +49,10 @@ class SorterForm {
             
             // Action au clavier
             this.buttons[i].addEventListener('focus', () => {
-                
                 this.sortByDeveloppement()              
                 
                 this.sortBy.addEventListener("keyup", (e) => {
+                    
                     if (e.key == "Enter") {
                         this.sortChoice(e.target)
                         e.stopPropagation()
@@ -90,6 +83,7 @@ class SorterForm {
     }
 
     sortChoice(e) { 
+        
         // supprime la classe du bouton de tri précédemment séléctionné
         this.actionOnAllButtons("remove_the_selected")
 
@@ -98,9 +92,10 @@ class SorterForm {
             e.classList.add("the_selected")
         }
 
-        this.buttons[this.buttons.length -1].classList.add("no_border")
+        this.buttons[this.buttons.length -1].classList.add("no_border")        
 
-        this.sort(e) 
+        this.sort(e)       
+
     }   
 
     
@@ -139,14 +134,12 @@ class SorterForm {
         return counter
     }
 
-    sort(e) {          
-        
-        const MediasData = this.recover()
+    sort(e) {
+        const MediasData = this.recover().map(media => new MediasFactory(media))  
         
         this.photographerMedia.innerHTML = ""
 
-        MediasData
-        .map(media => new MediasFactory(media))  
+        MediasData        
         .sort((a,b) => {
 
                 switch (e.value) {
@@ -165,17 +158,18 @@ class SorterForm {
             }
         )
         .forEach(media => {
+            
             const Template = new PhotographerMedias(media)                    
             this.photographerMedia.appendChild(Template.mediaCard())
         })
         
+        this.activeLightBox()
         const firstMedia = document.querySelector(".photographer-media .media-card a")
 
         firstMedia.addEventListener("focus", () => {
             this.sortByWrap()
-        })
+        })      
         
-        this.activeLightBox()
 
         // Encart likes & tarifs; total des likes
         let likes = new Likes()
@@ -210,7 +204,7 @@ class SorterForm {
             
             MediasData.push(media)
         }
-
+        
         return MediasData
     }
 
@@ -218,10 +212,11 @@ class SorterForm {
 
         const list = document.querySelectorAll(".media-type")
         const MediasData = this.recover().map(media => new MediasFactory(media))
-
-        let lightBox = new LightBox(MediasData);
-
-        list        
+    
+        let lightBox = new LightBox(MediasData) 
+        
+        
+        list      
         .forEach(media => {
             media.addEventListener("click", (e) => {
                 lightBox.show(e.currentTarget.dataset.id)
@@ -236,8 +231,10 @@ class SorterForm {
                     }                    
                 })                
             })
-        }) 
-
-        return list
+        })
+        
+        
+       
+   
     }
 }
